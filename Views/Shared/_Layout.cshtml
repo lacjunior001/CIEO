@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - CIEO - DETRAN/ES</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CIEO.styles.css" asp-append-version="true" />
+    <link href="/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="container">
+                        teste
+                    </div>
+                </div>
+            </div>
+            <div class="row bannerDoisDetran">
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <img src="https://detran.es.gov.br/Media/detran/_Profiles/a69f6923/a1a02a34/logoDETRAN.png">
+                            </div>
+                            <div class="col">
+                                <img src="http://cdn.es.gov.br/images/logo/governo/SECOM/Brasao_Governo_Secretaria_horizontal_white_right_small.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row bannerTresDetran">
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p style="color: aliceblue;">
+                                    Botão para abrir menu.(Outros Serviços Estes)
+                                </p>
+                            </div>
+                            <div class="col">
+                                <h4 style="color: aliceblue;">
+                                    <a asp-controller="Home" asp-action="Index">
+                                        CIEO
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="col">
+                                <p style="color: aliceblue;">
+                                    Botão com Proriedades do Usuario e notificações
+                                </p>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a asp-controller="Home" asp-action="LogOut">
+                                        LogOut
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer class="containet-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            FOORTER PART 1
+                        </div>
+                        <div class="col">
+                            &copy; 2022 - CIEO - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </div>
+                        <div class="col">
+                            FOORTER PART 3
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

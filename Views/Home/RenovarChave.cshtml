@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Renovar Chave";
+}
+@model CIEO.Models.DTOFront.RenovarChave
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                CIEO - Controlador da Integração E-Docs/OnBase.
+            </h3>
+            <h3>
+                Renovação de Chave
+            </h3>
+            <h5>Bem Vindo, @ViewBag.Apelido</h5>
+            <h5>CPF do Usuário Logado: @Model.Cpf</h5>
+            <h5>Hora que a Chave Atual Expira: @Model.Validade</h5>
+            <h5>
+                Papel/Cargo/Função Preferencial para executar ações no E-Docs:
+            </h5>
+            <h5>
+                @Model.PapelPreferencial
+            </h5>
+            <h5>Por que isso é necessário? </h5>
+            <p>
+                Devido as regras de negócio do E-Docs, uma chave deve gerada utilizando o acesso cidadão, a cada hora, para que um sistema externo pratique atos no E-Docs, em nome de uma pessoa.
+            </p>
+            <p>
+                Ocorre que por regras de segurança do OnBase, o acesso cidadão não pode ser utilizado como página de login.
+            </p>
+            <p>
+                Então se faz necessário a existência desta aplicação intermediária para que o encaixe entre os dois sistemas se de de forma mais fluida.
+            </p>
+        </div>
+    </div>
+</div>

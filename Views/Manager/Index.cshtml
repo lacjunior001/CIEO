@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "MANAGER";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                CIEO - Manager.
+            </h3>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h5>Bem Vindo, @ViewBag.Apelido</h5>
+            }
+            else
+            {
+                <h5>Bem Vindo</h5>
+                <p> Você ainda não está logado.</p>
+            }
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Configuração Padrão de Envio de Documento
+                </div>
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/img/IconeEmpenho.png" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Configuração Padrão de Envio de Documento</h5>
+                            <p class="card-text">
+                                Configuração Padrão de Envio de Documento
+                            </p>
+                            <a asp-controller="Manager" asp-action="ListaDocumentosConfigurados" class="btn btn-primary">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Relacionar Conta AC x Conta OnBase
+                </div>
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/img/IconeEmpenho.png" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Relacionar Conta AC x Conta OnBase</h5>
+                            <p class="card-text">
+                                Utilize esta opção para relacionar uma conta do OnBase com uma conta do Acesso cidadão.
+                            </p>
+                            <a asp-controller="Manager" asp-action="ListaContRelacionadas" class="btn btn-primary">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

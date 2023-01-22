@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "MANAGER - Relacionar Contas";
+}
+@model CIEO.Models.DTOFront.Manager.RelacionarContas
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                RELACIONAMENTO CADASTRADO COM SUCESSO
+            </h3>
+        </div>
+    </div>
+
+    <form asp-controller="Manager" asp-action="RelacionarContas" asp-antiforgery="true" method="post">
+        <div class="row">
+            <div class="col">
+                <label asp-for="CpfAcessoCidadao"></label>
+                <input asp-for="CpfAcessoCidadao" disabled class="form-control" placeholder="Informe Aqui" />
+            </div>
+            <div class="col">
+                <label asp-for="UserNameOnBase"></label>
+                <input asp-for="UserNameOnBase" disabled class="form-control" placeholder="Informe Aqui" />
+            </div>
+        </div>
+    </form>
+</div>

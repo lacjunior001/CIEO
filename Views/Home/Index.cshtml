@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                CIEO - Controlador da Integração E-Docs/OnBase.
+            </h3>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h5>Bem Vindo, @ViewBag.Apelido</h5>
+            }
+            else
+            {
+                <h5>Bem Vindo</h5>
+            }
+
+            <p>
+                Esta é uma pagina destinada a compor a integração entre os sistemas E-Docs e OnBase.
+            </p>
+            <p>
+                Aqui você poderá visualizar todos os documentos e atos que você determinou ao OnBase que fossem enviados para o E-Docs e, caso ocorram, corrigir os problemas de envio.
+            </p>
+
+        </div>
+    </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Lista de Atos
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/img/IconeEmpenho.png" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Lista de Atos</h5>
+                                <p class="card-text">
+                                    Utilize esta opção para visualizar todos os atos que praticou no E-Docs no ultimo ano através da integração OnBase X E-Docs.
+                                </p>
+                                <a href="#" class="btn btn-primary">Abrir Lista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Lista de Documentos.
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/img/IconeEmpenho.png" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Lista de Documentos.</h5>
+                                <p class="card-text">
+                                    Utilize esta opção para visualizar todos os atos que praticou no E-Docs no ultimo ano através da integração OnBase X E-Docs.
+                                </p>
+                                <a href="#" class="btn btn-primary">Abrir Lista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h3>Você ainda não está logado.</h3>
+        <a asp-controller="Home" asp-action="LogIn" class="btn btn-primary">Fazer Login</a>
+    }
+
+</div>

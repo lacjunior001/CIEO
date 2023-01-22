@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "MANAGER - Lista de Contas Relacionadas";
+}
+@model List<CIEO.Models.AcessoCidadao.UsuOBXUsuAC>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                Lista de Contas Relacionadas
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <a asp-controller="Manager" asp-action="RelacionarContasForm" class="btn btn-primary">Criar Novo Relacionamento</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">GUID Acesso Cidadão</th>
+                        <th scope="col">UserName OnBase</th>
+                        <th scope="col">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@Model[i].UsuarioAC.AcessoCidadaoId</td>
+                            <td>@Model[i].UsuarioOB.UserName</td>
+                            <td>Futuro Link de Exclusão</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

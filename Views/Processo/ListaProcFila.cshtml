@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Lista de Processos Aguardando Registro para envio ao E-Docs";
+    @model IEnumerable<CIEO.Models.DTOFront.Processo>
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="wrapper">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Object ID</th>
+                    <th scope="col">Data Solicitação</th>
+                    <th scope="col">Saldo Empenho</th>
+                    <th scope="col">Código Nota Empenho</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <th scope="row">@item.ObjectId</th>
+                        <td>@item.DataSolicitacao</td>
+                        <td>@item.SaldoEmpenho</td>
+                        <td>@item.CodigoNotaEmpenho</td>
+                        <td>
+                            <a asp-action="RegistrarEnvio" asp-route-id="@item.ObjectId">Registrar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "MANAGER - Lista de Contas Relacionadas";
+}
+@model List<CIEO.Models.DTOFront.Manager.DocumentoConfigLista>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                Lista de Contas Relacionadas
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <a asp-controller="Manager" asp-action="DocConfigPadForm" class="btn btn-primary">Criar Nova Configuração Padrão</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tipo Documental</th>
+                        <th scope="col">Categoria do Anexo</th>
+                        <th scope="col">Situação da Configuração</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@Model[i].TipoDocumental</td>
+                            <td>@Model[i].CategoriaDoAnexo</td>
+                            @if (@Model[i].Ativo)
+                            {
+                                <td>Ativa</td>
+                            }
+                            else
+                            {
+                                <td>Inativa</td>
+                            }
+                            <td>Futuro Link de Editar</td>
+                            <td>Futuro Link de Exclusão</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "MANAGER - Configurar Documento";
+}
+@model CIEO.Models.DTOFront.Manager.Assinante
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>
+                Configurar Tipo Documental
+            </h3>
+        </div>
+    </div>
+
+    <form asp-controller="Manager" asp-action="CadastrarA" asp-antiforgery="true" method="post">
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="TipoDocumental"></label>
+                <input asp-for="TipoDocumental" list="tiposDocumentais" placeholder="Informe Aqui" class="form-control">
+                <datalist id="tiposDocumentais">
+                    @for (int i = 0; i < Model.TiposDocumentais.Count; i++)
+                    {
+                        <option value="@Model.TiposDocumentais[i]"></option>
+                    }
+                </datalist>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="CategoriaAnexo"></label>
+                <input asp-for="CategoriaAnexo" class="form-control" placeholder="Informe Aqui" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="Nome"></label>
+                <input asp-for="Nome" class="form-control" placeholder="Informe Aqui" />
+            </div>
+            <div class="col">
+                <label asp-for="Extensao"></label>
+                <input asp-for="Extensao" class="form-control" placeholder="Informe Aqui" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input name="Credenciar" type="checkbox" class="form-check-input" id="flexCheckDefault" />
+                <label asp-for="Credenciar"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="AssinaturaTipoId"></label>
+                <select asp-for="AssinaturaTipoId" asp-items="@Model.AssinaturaTipo" class="form-select">
+                </select>
+            </div>
+            <div class="col">
+                <label asp-for="DocumentoTipoId"></label>
+                <select asp-for="DocumentoTipoId" asp-items="@Model.DocumentoTipo" class="form-select">
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="ValorLegalId"></label>
+                <select asp-for="ValorLegalId" asp-items="@Model.ValorLegal" class="form-select">
+                </select>
+            </div>
+            <div class="col">
+                <label asp-for="RestricaoTipoId"></label>
+                <select asp-for="RestricaoTipoId" asp-items="@Model.RestricaoTipo" class="form-select">
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label asp-for="ClasseId"></label>
+                <input asp-for="ClasseId" list="classesDocs" class="form-control">
+                <datalist id="classesDocs">
+                    @for (int i = 0; i < Model.Classes.Count; i++)
+                    {
+                        <option value="@Model.Classes[i].Id">@Model.Classes[i].Codigo.Trim().ToUpper() - @Model.Classes[i].Nome.Trim().ToUpper()</option>
+                    }
+                </datalist>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input name="Ativo" type="checkbox" class="form-check-input" id="flexCheckDefault" />
+                <label asp-for="Ativo"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type="submit" class="btn btn-primary" value="Enviar" />
+            </div>
+        </div>
+    </form>
+</div>
